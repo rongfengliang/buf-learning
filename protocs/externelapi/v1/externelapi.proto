@@ -1,0 +1,15 @@
+syntax = "proto3";
+package externelapi.v1;
+option go_package = "github.com/rongfengliang/bufapp/pkg/externelapi;devicemountv1";
+message DeviceMountRequest {
+   string mout_point =1;
+   bool  force = 2;
+}
+
+message  DeviceMountResponse {
+    string message = 1;
+    int32  status_code =2;
+}
+service  ExternelApiService {
+    rpc DeviceMount(DeviceMountRequest) returns (DeviceMountResponse){};
+}

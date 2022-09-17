@@ -1,0 +1,22 @@
+syntax = "proto3";
+
+import "google/protobuf/any.proto";
+
+package userlogin.v1;
+
+option go_package = "github.com/rongfengliang/bufapp/pkg/userlogin;userloginv1";
+
+message LoginRequest {
+   string username =1;
+   string  pasword = 2;
+}
+
+message  LoginResponse {
+    string message = 1;
+    int32  status_code =2;
+    map<string,google.protobuf.Any> datas =3;
+}
+
+service UserLoginService {
+    rpc Login(LoginRequest) returns (LoginResponse){};
+}
